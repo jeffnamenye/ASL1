@@ -1,25 +1,40 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php if( ! defined('BASEPATH'))  exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()
+	
+	public function __construct()
 	{
-		$this->load->view('welcome_message');
+		parent::__construct();
+		//this calls my model
+        $this->load->model("SMSModel", "m");
 	}
+
+
+	function index()
+	{
+		$this->load->view('student');
+	}
+
+
+	function savedata()
+	{
+		//creates an array for the data table from student
+		$data = array(
+					'studentName' => $this->input->post('studentName'),
+					'address' => $this->input->post('address'),
+					'phone' => $this->input->post('phone'),
+					'grade' => $this->input->post('grade'),
+					'gender' => $this->input->post('gender')
+
+			);
+				
+
+		//this inserts into database table name userid
+		$this->db->insert('studentName',$data);
+
+		//this is for when an insert already is there it will goto the student page
+		redirect("Welcome/student");
+}
+
 }
