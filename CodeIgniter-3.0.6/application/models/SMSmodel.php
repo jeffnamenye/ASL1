@@ -3,7 +3,7 @@ class SMSModel extends CI_Model {
 
     function __construct()
     {
-
+    	//Calls my model constructor
         parent::__construct();
 
 
@@ -13,7 +13,7 @@ class SMSModel extends CI_Model {
     {
         $query = $this->db->get('studentName');
         return $query->result();
-        
+
     }
 
 }

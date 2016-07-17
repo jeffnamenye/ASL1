@@ -7,7 +7,7 @@ class Welcome extends CI_Controller {
 	{
 		parent::__construct();
 		//this calls my model
-        $this->load->model("SMSModel", "m");
+        $this->load->model("SMSModel","m");
 	}
 
 
@@ -34,7 +34,8 @@ class Welcome extends CI_Controller {
 		$this->db->insert('studentName',$data);
 
 		//this is for when an insert already is there it will goto the student page
-		redirect("Welcome/student");
+		redirect("student");
+
 }
 
 }
