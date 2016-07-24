@@ -34,8 +34,25 @@ class Welcome extends CI_Controller {
 		$this->db->insert('studentName',$data);
 
 		//this is for when an insert already is there it will goto the student page
-		redirect("student");
+		redirect("Welcome");
+	}
 
-}
+	function edit($userid)
+	{
+		$row = $this->m->getonerow($userid);
+		$data['r'] = $row;
+		$this->load->view('edit',$data);
+	}
+
+	
+    function delete($userid)
+    {
+    	$userid = $this->db->where('userid',$userid);
+    	$this->db->delete('studentName');
+    	redirect("Welcome");
+    }
+
+    
+
 
 }

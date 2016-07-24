@@ -73,7 +73,7 @@
 		border: 1px solid #D0D0D0;
 		box-shadow: 0 0 8px #D0D0D0;
 	}
-	#tbody{
+	tbody{
 		border="1"
 	}
 	</style>
@@ -91,34 +91,35 @@
 	
 
 	<div id="body">
-
-		<form method="post" action="/index.php/Welcome/savedata">
+		<form method="post" action="<?php echo site_url('index.php/Welcome/update');?>">
+		
 		    <table>
+		    	   <input type="text"  name="userid" value="<?php echo $r->userid; ?>">
 		       <tr>
 		           <td>Student Name:</td>
-		           <td><input type="text" name="studentName" ></td>
+		           <td><input type="text" name="studentName" value="<?php echo $r->studentName; ?>"></td>
 
 		           </tr>
 		       </tr>
 
 		        <tr>
                      <td>Address:</td>
-                	 <td><input type="text" name="address" ></td>
+                	 <td><input type="text" name="address" value="<?php echo $r->address; ?>"></td>
                 </tr>
 
 		       <tr>
     		       <td>Phone:</td>
-    		       <td><input type="text" name="phone" ></td>
+    		       <td><input type="text" name="phone" value="<?php echo $r->phone; ?>"></td>
     		    </tr>
 
                 <tr>
                     <td>Grade:</td>
-                    <td><input type="text" name="grade" ></td>
+                    <td><input type="text" name="grade" value="<?php echo $r->grade; ?>"></td>
                 </tr>
 
                  <tr>
       		       <td>Gender:</td>
-      		       <td><input type="text" name="gender"></td>
+      		       <td><input type="text" name="gender" value="<?php echo $r->gender; ?>"></td>
       		     </tr>
 
                  <tr>
@@ -150,8 +151,6 @@
                               <td>$row->phone</td>
                               <td>$row->grade</td>
                               <td>$row->gender</td>
-                              <td><a href='".site_url('Welcome/edit/'.$row->userid)."'>Edit</a>|
-                                  <a href='".site_url('Welcome/delete/'.$row->userid)."'>Delete</a>
                               </br>
                               
                               </td>

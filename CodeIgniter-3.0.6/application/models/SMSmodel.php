@@ -16,4 +16,14 @@ class SMSModel extends CI_Model {
 
     }
 
+    function getonerow($userid)
+    {
+    	$this->db->where('userid',$userid);
+    	$query = $this->db->get('studentName');
+    	return $query->row();
+
+    }
+
+    
+
 }
