@@ -91,10 +91,10 @@
 	
 
 	<div id="body">
-		<form method="post" action="<?php echo site_url('index.php/Welcome/update');?>">
+		<form method="post" action="<?php echo site_url('Welcome/update')?>">
 		
 		    <table>
-		    	   <input type="text"  name="userid" value="<?php echo $r->userid; ?>">
+		    	   <input type="text" name="userid" value="<?php echo $r->userid; ?>">
 		       <tr>
 		           <td>Student Name:</td>
 		           <td><input type="text" name="studentName" value="<?php echo $r->studentName; ?>"></td>

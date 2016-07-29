@@ -43,7 +43,6 @@ class Welcome extends CI_Controller {
 		$data['r'] = $row;
 		$this->load->view('edit',$data);
 	}
-
 	
     function delete($userid)
     {
@@ -52,7 +51,20 @@ class Welcome extends CI_Controller {
     	redirect("Welcome");
     }
 
+    function update($userid)
+    {
+    	$userid = $this->input->post('userid');
+    	$data = array(
+					'studentName' => $this->input->post('studentName'),
+					'address' => $this->input->post('address'),
+					'phone' => $this->input->post('phone'),
+					'grade' => $this->input->post('grade'),
+					'gender' => $this->input->post('gender')
+					);
+
+    	$this->db->where('userid',$userid);
+    	$this->db->update('studentName',$data);
+    	redirect("Welcome/update");
+    }
     
-
-
 }
